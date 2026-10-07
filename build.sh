@@ -3,4 +3,8 @@ if [ ! -d "build" ]; then
 	mkdir build
 fi
 
-gcc -g -o ./build/mathgraph src/main.c src/lexer.c src/lexer.h
+
+TARGET=./build/mathgraph
+OPTIONS=-"std=c11 -g -Wall -Wpedantic"
+
+gcc $OPTIONS -o $TARGET src/main.c src/lexer.c src/lexer.h
