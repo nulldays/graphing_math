@@ -11,15 +11,23 @@ typedef enum {
   TOKENTYPE_RBRACKET,
   TOKENTYPE_LBRACKET,
 
-  TOKENTYPE_RBRACE,
-  TOKENTYPE_LBRACE,
+  TOKENTYPE_RBRACE, 
+  TOKENTYPE_LBRACE, 
 
   TOKENTYPE_RPAREN,
   TOKENTYPE_LPAREN,
 
+  TOKENTYPE_PLUS,
+  TOKENTYPE_MINUS,
+  TOKENTYPE_SLASH,
+  TOKENTYPE_STAR,
+
+  TOKENTYPE_IDENT,
+  TOKENTYPE_NUMBER,
+	
+  // Multicharater identifier
   TOKENTYPE_FUNC,
   TOKENTYPE_PLOT,
-
 } TokenType;
 
 typedef struct SToken {
@@ -29,8 +37,8 @@ typedef struct SToken {
 
 typedef struct SLexer Lexer;
 
-Lexer *lexer_create(char* input);
-Token *lexer_next_token(Lexer* lex);
+Lexer *lexer_create(char *input);
+Token *lexer_next_token(Lexer *lex);
 void lexer_destroy(Lexer *lex);
 
 Token *token_create(TokenType type, char *lit);
